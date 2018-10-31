@@ -6,11 +6,18 @@ class Kele
   base_uri 'https://www.bloc.io/api/v1' #built in attribute of httparty
 
   def initialize(email, password)
-    client = self.class.post('/sessions', { query: { email:email, password:password } } )
+    client = self.class.post("/sessions", { query: { email: email, password: password } })
     if client['auth_token'].nil?
-      raise "Incorrect email or password"
+      raise "Invalid email or password"
     else
-      @auth_token = client['auth_token']
+      @auth_token = client["auth_token"]
     end
+  end
+
+  #Retrieve current user's data
+  def get_me
+    #Pass the auth_token via HTTParty's headers option:
+    response = self.class.get("/users/me", headers: { "authorization" => @auth_token })
+    @user = JSON.parse(response.body)
   end
 end
