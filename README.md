@@ -17,7 +17,7 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
 ## Initialization
   ** Users should use their own Bloc.io email and password to access the API.
 
-  ```ruby
+  ```
   $ irb
   >> require './lib/kele'
   => true
@@ -28,7 +28,7 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
 
   ** Retrieve the current user from the Bloc API by defining `get_me` which can be used as follows:
 
-    ```ruby
+    ```
     $ irb
     >> require './lib/kele'
     => true
@@ -38,7 +38,7 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
 ## Retrieving a List of Mentor's Available Time Slots
   ** Find your mentor's id in the user data returned by `get_me` to include in the URL. Retrieve a list of a mentor's available time slots for the current user from the Bloc API by defining get_mentor_availability which can be used as follows:
 
-    ```ruby
+    ```
     $ irb
     >> require './lib/kele'
     => true
