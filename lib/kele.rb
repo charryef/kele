@@ -1,8 +1,10 @@
 require 'httparty' #pulling the gem into our file so we can use it for our http request
 require 'json' # Json is a Ruby module that we'll use to parse what's returned from the http request
+require './lib/roadmap'
 
 class Kele
   include HTTParty #including the module of the gem so we can use the specific methods for the class
+  include Roadmap
   base_uri 'https://www.bloc.io/api/v1' #built in attribute of httparty
 
   def initialize(email, password)
@@ -26,4 +28,5 @@ class Kele
     response = self.class.get("/mentors/#{mentor_id}/student_availability", headers: { "authorization" => @auth_token })
     @mentor_availability = JSON.parse(response.body)
   end
+
 end
