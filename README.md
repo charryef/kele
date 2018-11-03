@@ -24,7 +24,7 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
   >> Kele.new("jane@gmail.com", "abc123")
   ```
 
-## Retrieving Current User's Data`
+## Retrieving Current User's Data
 
   ** Retrieve the current user from the Bloc API by defining `get_me` which can be used as follows:
 
@@ -36,7 +36,7 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
     >> kele_client.get_me
     ```
 ## Retrieving a List of Mentor's Available Time Slots
-  ** Find your mentor's id in the user data returned by `get_me` to include in the URL. Retrieve a list of a mentor's available time slots for the current user from the Bloc API by defining get_mentor_availability which can be used as follows:
+  ** Find the current user's mentor's id in the user data returned by `get_me` to include in the URL. Retrieve a list of a mentor's available time slots for the current user from the Bloc API by defining get_mentor_availability which can be used as follows:
 
     ```ruby
     $ irb
@@ -57,3 +57,14 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
   >> kele_client.get_messages(1) # returns the first page of message threads
   >> kele_client.get_messages # returns all message threads
   ```
+
+## Remaining Checkpoints
+  ** Retrieve the Bloc checkpoints remaining in the current section of the current user.
+
+    ```ruby
+    $ irb
+    >> require './lib/kele'
+    => true
+    >> kele_client = Kele.new("Hannah.McExample@gmail.com", "abc123")
+    >> kele_client.get_remaining_checkpoints(chain_id)
+    ```
