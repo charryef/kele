@@ -46,26 +46,14 @@ Kele is a Ruby Gem API client to access the [Bloc's API](http://docs.blocapi.api
     >> mentor_id = 99
     >> kele_client.get_mentor_availability(mentor_id)
     ```
+## Retrieving Messages
+  ** Retrieve all message threads for the current user by defining `get_messages`.
 
-## Retrieving Roadmaps and Checkpoints
-  ** Retrieve roadmaps with their associated sections and checkpoints by defining `get_roadmap` to be used as follows:
-
-    ```ruby
-    $ irb
-    >> require './lib/kele'
-    => true
-    >> kele_client = Kele.new("jane@gmail.com", "abc123")
-    >> chain_id = 99
-    >> kele_client.get_roadmap(chain_id)
-    ```
-
-  ** Retrieve checkpoints with their associated body and assignment by defining `get_checkpoint` to be used as follows:
-
-    ```ruby
-    $ irb
-    >> require './lib/kele'
-    => true
-    >> kele_client = Kele.new("jane@gmail.com", "abc123")
-    >> checkpoint_id = 99
-    >> kele_client.get_checkpoint(checkpoint_id)
-    ```
+  ```ruby
+  $ irb
+  >> require './lib/kele'
+  => true
+  >> kele_client = Kele.new("Hannah.McExample@gmail.com", "abc123")
+  >> kele_client.get_messages(1) # returns the first page of message threads
+  >> kele_client.get_messages # returns all message threads
+  ```
